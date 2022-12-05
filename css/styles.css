@@ -1,0 +1,18 @@
+body {
+    font-family: mitr;
+}
+
+.login {
+    margin-top: 50px;
+    height: 550px;
+    background-color: lightgray;
+}
+
+.login-left {
+    border-radius: 20px 0px 0px 20px;
+    background-color: darkgray;
+}
+
+.login-right {
+    border-radius: 0px 20px 20px 0px;
+}
