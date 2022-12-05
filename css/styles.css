@@ -1,11 +1,14 @@
 body {
-    font-family: mitr;
+    font-family: 'Mitr';
 }
 
 .login {
     margin-top: 50px;
     height: 550px;
-    background-color: lightgray;
+}
+
+.width90 {
+    width: 90%;
 }
 
 .login-left {
@@ -13,6 +16,96 @@ body {
     background-color: darkgray;
 }
 
+.login-img {
+    display: block;
+    width: 70%;
+    margin: auto;
+}
+
 .login-right {
     border-radius: 0px 20px 20px 0px;
+    background-color: lightgray;
+}
+
+.login-input {
+    width: 60%;
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.login-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-black {
+    width: 60%;
+    height: 40px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-black:hover {
+    background-color: white;
+    color: black;
+}
+
+.login-txt-small {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 100%;
+}
+
+.login-txt {
+    text-align: center;
+    margin: 90px 0px 15px 0px;
+}
+
+.login-txt-left {
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 0px;
+}
+
+.login-txt-left2 {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.navbar {
+    width: 100%;
+    background-color: pink;
+    text-align: center;
+    color: palevioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 767.98px) {
+
+    .login-left {
+        display: none;
+        border-radius: 20px 20px 0px 0px;
+        background-color: darkgray;
+    }
+
+    .login-right {
+        border-radius: 20px 20px 20px 20px;
+        background-color: lightgray;
+    }
 }
