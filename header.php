@@ -15,18 +15,17 @@
 <header>
 
 <nav class="navbar">
-<h1>BooBoo</h1>
+<h1 onclick="location.href = ('index.php');">BooBoo</h1>
+</nav>
 
 <?php  
     $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"],"/") + 1);  
 
     if ($curPageName == "index.php"){
-        echo "</nav>";
+        
     }
     else {
-        echo '<button class="button-black">asdf</button>
-        <button class="button-black">asdf</button>
-        </nav>';
+        
     }
   ?> 
 
