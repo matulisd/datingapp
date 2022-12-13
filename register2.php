@@ -2,11 +2,11 @@
     session_start();
     include_once 'header.php';
 
-    if (empty($_SESSION['useremail'])){
-        header("Location: ./index.php");
-    }
+    // if (empty($_SESSION['useremail'])){
+    //     header("Location: ./index.php");
+    // }
 
-    echo $_SESSION['useremail'];
+    // echo $_SESSION['useremail'];
 ?>
 
 <section class="register-box">

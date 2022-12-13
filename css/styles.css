@@ -5,6 +5,7 @@ body {
 .login {
     margin-top: 50px;
     height: 550px;
+    position: relative;
 }
 
 .width90 {
@@ -13,7 +14,8 @@ body {
 
 .login-left {
     border-radius: 20px 0px 0px 20px;
-    background-color: darkgray;
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
 }
 
 .login-img {
@@ -25,7 +27,8 @@ body {
 
 .login-right {
     border-radius: 0px 20px 20px 0px;
-    background-color: lightgray;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
 }
 
 .login-input {
@@ -80,6 +83,44 @@ body {
     margin-bottom: 0px;
 }
 
+.login-txt-left::before {
+    content: "Mergina ieško vaikino";
+    animation: textchange infinite 5s;
+}
+
+@keyframes textchange {
+
+    0% {
+        content: "Mergina ieško vaikino";
+        opacity: 0%;
+    }
+
+    25% {
+        content: "Mergina ieško vaikino";
+        opacity: 100%;
+    }
+
+    50% {
+        content: "Mergina ieško vaikino";
+        opacity: 0%;
+    }
+
+    51% {
+        content: "Vaikinas ieško merginos";
+        opacity: 0%;
+    }
+
+    75% {
+        content: "Vaikinas ieško merginos";
+        opacity: 100%;
+    }
+
+    100% {
+        content: "Vaikinas ieško merginos";
+        opacity: 0%;
+    }
+}
+
 .login-txt-left2 {
     text-align: center;
     font-size: 1.3rem;
@@ -88,20 +129,22 @@ body {
 
 .navbar {
     width: 100%;
-    background-color: pink;
+    /* background-color: pink; */
     text-align: center;
-    color: palevioletred;
+    color: rgb(133, 79, 110);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin-top: 25px;
+    margin-bottom: -25px;
 }
 
 .register-box {
     width: 30%;
-    background-color: lightgray;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
     margin: auto;
-    margin-top: 80px;
+    margin-top: 50px;
     border-radius: 10px;
     text-align: center;
 }
@@ -155,6 +198,337 @@ body {
     margin-bottom: 20px;
 }
 
+.gradientbg {
+    /* background-color: rgb(204, 219, 244); */
+    /* background: linear-gradient(180deg, rgba(225, 128, 182, 1) 0%, rgba(204, 219, 244, 1) 100%); */
+    background-attachment: fixed;
+    background-image: linear-gradient(rgb(225, 128, 182), rgb(204, 219, 244));
+}
+
+.login-bottom-text {
+    font-size: 0.6rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    color: white;
+}
+
+.sidebar {
+    position: relative;
+    width: 20%;
+    height: 100vh;
+    /* background-color: rgba(255, 255, 255, 0.15); */
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.mainpage {
+    display: flex;
+    justify-content: center;
+}
+
+.user-name-block {
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    /* background-color: rgb(33, 33, 33); */
+    /* background-image: linear-gradient(rgb(49, 49, 49), rgb(17, 17, 17)); */
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 20px;
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 60px;
+}
+
+.user-name {
+    font-size: 20px;
+    margin-left: 15px;
+    margin-top: 7px;
+}
+
+.navbutton {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+    margin: 0px;
+    transition: 0.3s;
+}
+
+.active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbutton:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.logoff {
+    position: absolute;
+    bottom: 0px;
+}
+
+.matchbox {
+    width: 25%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+}
+
+.workspace {
+    width: 80%;
+    height: 100%;
+}
+
+.matches-preview {
+    display: flex;
+    align-items: center;
+}
+
+.matchbox-inside {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+}
+
+.profile-edit-box {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 72vh;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: none;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    opacity: 0;
+}
+
+::-webkit-scrollbar-corner {
+    opacity: 0;
+}
+
+::-webkit-scrollbar-track-piece {
+    opacity: 0;
+}
+
+.match-preview {
+    width: 100%;
+    height: 60vh;
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.match-navigation {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.match-picture {
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin: auto;
+    object-fit: cover;
+}
+
+.match-picture-small {
+    height: 10%;
+    width: 10%;
+    display: block;
+    margin: auto;
+    object-fit: cover;
+}
+
+.match-info {
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.3));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.15);
+    flex-wrap: wrap;
+}
+
+.profile-info {
+    height: auto;
+}
+
+.match-info-txt {
+    font-size: 1.5rem;
+    margin: 40px;
+}
+
+.profile-info-txt {
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+.match-info-button {
+    width: 35px;
+    margin: 40px;
+    opacity: 75%;
+    transition: 0.3s;
+}
+
+.match-info-button:hover {
+    cursor: pointer;
+    opacity: 85%;
+}
+
+.match-button {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 50px;
+    padding: 15px;
+    border-radius: 100px;
+    border: none;
+    opacity: 85%;
+    transition: 0.3s;
+}
+
+.match-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+.match-button:focus {
+    outline: 0 !important;
+}
+
+.photo-switch {
+    padding: 35px;
+    border: none;
+    opacity: 0%;
+    position: absolute;
+    background: none;
+    transition: 0.3s;
+}
+
+.match-preview:hover>.photo-switch {
+    opacity: 40%;
+}
+
+.photo-switch:focus {
+    outline: 0 !important;
+}
+
+.switch-left {
+    left: 0px;
+}
+
+.switch-right {
+    right: 0px;
+}
+
+.invisible-line {
+    margin: auto;
+    width: 95%;
+    opacity: 0;
+    height: 1px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.line {
+    margin: auto;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 1px;
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.interest-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.interest {
+    padding: 5px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.profile-info-tag {
+    margin: 10px;
+    margin-left: 20px;
+}
+
+.description-bg {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+#profile-preview {
+    display: none;
+}
+
+#profile {
+    display: block;
+}
+
+.removebuttonatt {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px;
+}
+
+.removebuttonatt:focus {
+    outline: 0 !important;
+}
+
 @media (max-width: 1200px) {
     .register-box {
         width: 50%;
@@ -181,7 +555,6 @@ body {
 
     .login-right {
         border-radius: 20px 20px 20px 20px;
-        background-color: lightgray;
     }
 
     .register-box {

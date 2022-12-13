@@ -1,9 +1,9 @@
 <?php
     include_once 'header.php';
 
-    $_SESSION['useremail'] = NULL;
+    // unset($_SESSION['useremail']);
 
-    echo $_SESSION['useremail'];
+    // echo $_SESSION['useremail'];
 ?>
 
 <div class="container width90">
@@ -11,7 +11,7 @@
         <section class="col-md-6 col-sm-12 login-left">
             <img class="login-img" src="./img/korteles.png" alt="Naudotojų profilių nuotraukos">
              <!-- pakeisti i besikeicianti teksta + vaikinas iesko merginos -->
-             <h2 class="login-txt-left">Mergina ieško vaikino</h2>
+             <h2 class="login-txt-left"></h2>
             <h3 class="login-txt-left2">Pažintys mygtuko paspaudimu - 
                 surask savo antrą pusę šiandien!
             </h3>
@@ -30,7 +30,7 @@
             <button id="register" class="button-black">Registruotis</button>
         </section>
     </div>
-<div>
+</div>
 
 <?php
     include_once 'footer.php';

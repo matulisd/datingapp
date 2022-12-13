@@ -3,6 +3,11 @@ session_start();
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Origin: *");
 
+function output($arg) {
+    echo json_encode($arg);
+    exit;
+}
+
 $server = "localhost";
 $user = "root";
 $password = "";
@@ -12,6 +17,8 @@ $conn=new mysqli($server,$user,$password,$database);
 
 if ($conn->connect_error){
     die("connection failed:" . $conn->connect_error);
+    // $output=array("TIPAS"=>"Klaida","ATS"=> "Negaliu prisijungti prie MySQL".$conn->connect_error);
+	// output($output);
 }
 
 if (!empty($_POST['email']) && !empty($_POST['password'])){

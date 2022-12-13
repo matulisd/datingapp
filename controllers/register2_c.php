@@ -15,7 +15,7 @@ if ($conn->connect_error){
     die("connection failed:" . $conn->connect_error);
 }
 
-echo $_SESSION['useremail'];
+echo $_SESSION['useremail'] . " ";
 
 if (empty($_SESSION['useremail'])){
     header("Location: ../index.php");
@@ -36,7 +36,6 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 if(isset($_POST["submit"])) {
-
     $check = getimagesize($_FILES["picture"]["tmp_name"]);
     if($check !== false) {
       echo "File is an image - " . $check["mime"] . ".";
@@ -46,6 +45,27 @@ if(isset($_POST["submit"])) {
       $uploadOk = 0;
     }
 }
+
+$name =  htmlspecialchars($_POST['name']);   
+    $birthdate = $_POST['birthdate'];
+
+    // if (empty($name)){
+    //     echo $name;
+    //     echo "Iveskite varda ";
+    //     $uploadOk = 0;
+    //     die();
+    // }
+
+    // echo "dabar - 18:" . (int)date("y-m-d") - 18 . " ";
+    // // echo ((int)date("Y-m-d") - (int)$birthdate);
+    // echo strtotime(date("y-m-d")) - strtotime($birthdate);
+
+    // if ((int)date("Y-m-d") - (int)$birthdate < 18){
+    //     // echo ((int)date("Y-m-d") - (int)$birthdate);
+    //     echo "Per jaunas ";
+    //     $uploadOk = 0;
+    //     die();
+    // }
 
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
@@ -70,8 +90,6 @@ if ($uploadOk == 0) {
 else {
     if (move_uploaded_file($_FILES["picture"]["tmp_name"], $new_file_name)) {
         echo "The file ". htmlspecialchars( basename( $_FILES["picture"]["name"])). " has been uploaded.";
-        $name =  htmlspecialchars($_POST['name']);   
-        $birthdate = $_POST['birthdate'];
         //$sql = "UPDATE user SET (name, birth_date) VALUES ('$name', '$birthdate') WHERE email = ('{$_SESSION['useremail']}')";
         $sql = "UPDATE user SET name = '$name', birth_date = '$birthdate' WHERE email = '{$_SESSION['useremail']}'";
         if ($conn->query($sql) != true){
