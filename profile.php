@@ -4,8 +4,8 @@ include_once 'header.php';
 <section class="mainpage">
 <aside class="sidebar">
     <section class="user-name-block">
-    <img class="profile-picture" src=".\img\usr_img\1670341460.jpg" alt="User's profile picture">
-    <h2 class="user-name">Vardenis</h2>
+    <img class="profile-picture" src=".\img\usr_img\dd\Screenshot_5.jpg" alt="User's profile picture">
+    <h2 class="user-name">Rimantė</h2>
     </section>
     <nav>
         <p class="navbutton">Pagrindinis</p>
@@ -20,10 +20,10 @@ include_once 'header.php';
     <section class="match-preview">
         <button class="photo-switch switch-left"><img src=".\img\arrow_left.svg" alt="Arrow left"></button>
         <button class="photo-switch switch-right"><img src=".\img\arrow_right.svg" alt="Arrow right"></button>
-        <img class="match-picture" src=".\img\usr_img\1670341776.jpg">
+        <img class="match-picture" src=".\img\usr_img\dd\Screenshot_5.jpg">
     </section>
     <section class="match-info profile-info">
-        <p class="match-info-txt profile-info-txt">Vardenis, 20</p>
+        <p class="match-info-txt profile-info-txt">Rimantė, 20</p>
         <!-- <img class="match-info-button" src=".\img\info.svg" alt="More info button"> -->
         <div class="line"></div>
         <span class="profile-info-tag ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>

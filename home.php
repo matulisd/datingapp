@@ -4,8 +4,8 @@ include_once 'header.php';
 <section class="mainpage">
 <aside class="sidebar">
     <section class="user-name-block">
-    <img class="profile-picture" src=".\img\usr_img\1670341460.jpg" alt="User's profile picture">
-    <h2 class="user-name">Vardenis</h2>
+    <img class="profile-picture" src=".\img\usr_img\dd\Screenshot_5.jpg" alt="User's profile picture">
+    <h2 class="user-name">Rimantė</h2>
     </section>
     <nav>
         <p class="navbutton active">Pagrindinis</p>
@@ -24,7 +24,7 @@ include_once 'header.php';
         <img class="match-picture" src=".\img\usr_img\1670341776.jpg">
     </section>
     <section class="match-info">
-        <p class="match-info-txt">Vardenis, 20</p>
+        <p class="match-info-txt">Tadas, 24</p>
         <button class="removebuttonatt" onclick="toggleinfo()"><img id="toggleinfo" class="match-info-button" src=".\img\info.svg" alt="More info button"></button>
     </section>
 </section>
@@ -38,7 +38,7 @@ include_once 'header.php';
         <img class="match-picture" src=".\img\usr_img\1670341776.jpg">
     </section>
     <section class="match-info profile-info profile-edit-box">
-        <p class="match-info-txt">Vardenis, 20</p>
+        <p class="match-info-txt">Tadas, 24</p>
         <button class="removebuttonatt" onclick="toggleinfo()"><img id="toggleinfo" class="match-info-button" src=".\img\info.svg" alt="More info button"></button>
         <div class="line"></div>
         <span class="profile-info-tag ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>

@@ -84,39 +84,39 @@ body {
 }
 
 .login-txt-left::before {
-    content: "Mergina ieško vaikino";
+    content: "Mergina ieško vaikino!";
     animation: textchange infinite 5s;
 }
 
 @keyframes textchange {
 
     0% {
-        content: "Mergina ieško vaikino";
+        content: "Mergina ieško vaikino!";
         opacity: 0%;
     }
 
     25% {
-        content: "Mergina ieško vaikino";
+        content: "Mergina ieško vaikino!";
         opacity: 100%;
     }
 
     50% {
-        content: "Mergina ieško vaikino";
+        content: "Mergina ieško vaikino!";
         opacity: 0%;
     }
 
     51% {
-        content: "Vaikinas ieško merginos";
+        content: "Vaikinas ieško merginos!";
         opacity: 0%;
     }
 
     75% {
-        content: "Vaikinas ieško merginos";
+        content: "Vaikinas ieško merginos!";
         opacity: 100%;
     }
 
     100% {
-        content: "Vaikinas ieško merginos";
+        content: "Vaikinas ieško merginos!";
         opacity: 0%;
     }
 }
@@ -229,8 +229,10 @@ body {
 }
 
 .mainpage {
+    height: 100vh;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
 .user-name-block {
@@ -291,16 +293,6 @@ body {
     align-items: center;
     flex-wrap: wrap;
     border-radius: 10px;
-}
-
-.workspace {
-    width: 80%;
-    height: 100%;
-}
-
-.matches-preview {
-    display: flex;
-    align-items: center;
 }
 
 .matchbox-inside {
@@ -366,20 +358,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 0px;
 }
 
 .match-picture {
     height: 100%;
     width: 100%;
-    display: block;
-    margin: auto;
-    object-fit: cover;
-}
-
-.match-picture-small {
-    height: 10%;
-    width: 10%;
     display: block;
     margin: auto;
     object-fit: cover;
@@ -497,7 +481,8 @@ body {
 .interest {
     padding: 5px;
     margin: 10px;
-    background-color: white;
+    background-color: black;
+    color: white;
     border-radius: 15px;
 }
 
@@ -527,6 +512,270 @@ body {
 
 .removebuttonatt:focus {
     outline: 0 !important;
+}
+
+.matchbox-small {
+    margin: auto;
+    width: 85%;
+    height: 90%;
+    position: relative;
+    border-radius: 50px;
+}
+
+.matchbox-small:hover {
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, .8);
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.match-picture-small {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.txtcover {
+    width: 100%;
+    height: 40%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0));
+    position: absolute;
+    bottom: 0px;
+    border-radius: 0px 0px 50px 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 15px;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    text-align: center;
+}
+
+.txtcover:hover {
+    font-size: 1.2em;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.matches-preview {
+    display: grid;
+    grid-template-columns: 16% 16% 16% 16% 16% 16%;
+    column-gap: 10px;
+    row-gap: 10px;
+    position: relative;
+}
+
+.workspace {
+    width: 80%;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin: 10px;
+}
+
+.messages-grid {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    column-gap: 5px;
+    width: 99.7%;
+    height: 100vh;
+}
+
+.messages-box {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.chatbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+    position: relative;
+    bottom: 0px;
+    padding: 5px;
+
+}
+
+.msginput {
+    width: 85%;
+    height: 70%;
+    margin-right: 5px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.msgsend {
+    width: 15%;
+    height: 70%;
+    border-radius: 20px;
+}
+
+.message {
+    width: 40%;
+    background-color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    margin: 10px;
+    padding-bottom: 0px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    word-break: break-word;
+    float: left;
+    display: block;
+    clear: both;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timestamp {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 0.7em;
+    opacity: 60%;
+}
+
+.sent {
+    background-color: rgb(138, 198, 255);
+    position: relative;
+    float: right;
+}
+
+.chat-block {
+    height: 90vh;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.preview-inchat {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.photo-switch {
+    padding: 35px;
+    border: none;
+    opacity: 0%;
+    position: absolute;
+    background: none;
+    transition: 0.3s;
+}
+
+.preview-inchat:hover>.photo-switch {
+    opacity: 40%;
+}
+
+.profile-info-inchat {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 38vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.match-info-inchat {
+    font-size: 1.5rem;
+    padding: 15px;
+    margin: 0px;
+}
+
+.description-txt {
+    padding: 15px;
+    margin: 0px;
+}
+
+.inchat-btn {
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+    border: none;
+    color: white;
+    background-color: rgba(50, 50, 50, .5);
+}
+
+.inchat-btn:hover {
+    color: darkred;
+}
+
+.nomargin {
+    margin: 0px;
+}
+
+.inchat-btn:focus {
+    outline: 0 !important;
+}
+
+.nametag {
+    position: relative;
+    clear: both;
+    margin: auto;
+    text-align: left;
+    width: 40%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nametag-right {
+    float: right;
+}
+
+.msg-preview {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: row wrap;
+    height: 20%;
+    margin-bottom: 20px;
+    width: 40%;
+    background-color: rgba(255, 255, 255, .8);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.msg-pre-img {
+    position: relative;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.msg-pre-name {
+    font-size: 1.2em;
+    margin: 0px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.msg-pre {
+    position: relative;
+    margin: 0px;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.add-padding {
+    padding: 10px;
+}
+
+.register-error-txt {
+    text-align: center;
+    color: red;
+    width: 100%;
+    display: block;
 }
 
 @media (max-width: 1200px) {

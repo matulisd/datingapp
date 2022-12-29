@@ -12,6 +12,7 @@ $server = "localhost";
 $user = "root";
 $password = "";
 $database= "datingapp";
+$error = null;
 
 $conn=new mysqli($server,$user,$password,$database);
 
@@ -43,18 +44,32 @@ if (!empty($_POST['email']) && !empty($_POST['password'])){
             }
             else {
                 echo "Klaida: " . $sql . "<br>" . $conn->error;
+                $error = $conn->error;
             }
         }
         else {
             echo "Tokia paskyra jau yra";
+            $error = "Tokia paskyra jau yra";
         }
     }
     else {
         echo "Slaptazodziai nesutampa";
+        $error = "Slaptazodziai nesutampa";
     }
 }
 else {
     echo "tuscia";
+    $error = "tuscia";
+}
+
+if (isset($_POST['submit'])) {
+    $error = '';
+    if (!empty($_POST['email'])) {
+        $error = "email empty";
+    }
+    if (!empty($_POST['password'])){
+        $error = "pass empty";
+    }
 }
 
 // $conn->close();

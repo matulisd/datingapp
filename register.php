@@ -7,10 +7,20 @@ session_start();
 // }
 
     include_once 'header.php';
+
+
+    if(isset($_POST['submit'])){
+        $email = htmlspecialchars($_POST['email']);
+    $password = substr(hash('sha256',$_POST['password']),5,32);
+    $password_repeat = substr(hash('sha256',$_POST['password-repeat']),5,32);
+
+    if ($password == $password_repeat){
+    }
+    
 ?>
 
 <section class="register-box">
-    <form method="post" action="./controllers/register_c.php" id="register-form" class="register-form">
+    <form method="post" action="<?php $_SERVER['PHP_SELF'] ?>" id="register-form" class="register-form">
     <!-- <form id="register-form" class="register-form"> -->
         <p class="register-txt">Sukurkite naują paskyrą</p>
         <input type="email" class="form-control login-input" 
@@ -19,7 +29,14 @@ session_start();
         placeholder="Slaptažodis" name="password" id="password">
         <input type="password" class="form-control login-input"
         placeholder="Pakartokite slaptažodį" name="password-repeat" id="password-repeat">
-        <input type="submit" class="button-black" value="Registruotis">
+        <input name="submit" type="submit" class="button-black" value="Registruotis">
+        <?php
+        if (!empty($error)){
+            echo '<p class="register-error-txt">' . $error . '</p>';
+        }
+        ?>
+        
+        <!-- <p class="register-error-txt">Sukurkite naują paskyrą</p> -->
     </form>
     <p id="back-to-main" class="back-register">Grįžti</p>
 </section>

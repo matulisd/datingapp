@@ -18,7 +18,7 @@
         <input id="birthdate" type="date" class="form-control login-input" name="birthdate">
         <label class="register2-label" class="img-upload-txt">Įkelkite savo nuotrauką</label>
         <input class="form-control" type="file" id="picture" name="picture">
-        <input type="submit" class="button-black topmargin35 botmargin20" value="Užbaigti registraciją">
+        <input type="submit" class="button-black topmargin35 botmargin20" value="Toliau">
     </form>
     <!-- <p id="back-to-main" class="back-register">Grįžti</p> -->
 </section>
