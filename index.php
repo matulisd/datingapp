@@ -4,26 +4,31 @@
     // $db = DB();
     // require("controllers/login.php");
     
+    session_start();
     include_once 'header.php';
 
+    if(isset($_SESSION['user_email'])){
+        header("Location: home.php");
+    }
 
     if(isset($_POST['submit'])){
         $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
-    
+        $password = mysqli_real_escape_string($conn, substr(hash('sha256',$_POST['password']),5,32));
+        $empty_password_check = substr(hash('sha256',""),5,32);
+
         if($email == null){
             $error = "Įveskite el. pašto adresą";
         }
-        else if($password == null){
+        else if($password == $empty_password_check){
             $error = "Įveskite slaptazodi";
         }
         else{
-            $query = "SELECT email, password FROM user WHERE email='$email'";
+            $query = "SELECT id, name, email, password, description, gender  FROM user WHERE email='$email'";
     
             if(mysqli_query($conn, $query)){
                 $result = mysqli_query($conn, $query);
-                $user = mysqli_fetch_assoc($result);
-                // var_dump($user);
+                $user = mysqli_fetch_array($result);
+                var_dump($user);
                 mysqli_free_result($result);
     
                 // foreach($user as $usr){
@@ -32,8 +37,11 @@
             
                 if($user != null){
     
-                    if($user['password'] == substr(hash('sha256',$_POST['password']),5,32)){
+                    if($user['password'] == $password){
                         $_SESSION['user_email'] = $user['email'];
+                        $_SESSION['user_name'] = $user['name'];
+                        $_SESSION['user_id'] = $user['id'];
+                        $_SESSION['user_gender'] = $user['gender'];
                         header("Location: home.php");
                     }
                     else {

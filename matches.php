@@ -12,10 +12,10 @@ $arr = array("Screenshot_1", "Screenshot_2", "Screenshot_3", "Screenshot_4", "Sc
     <h2 class="user-name">Rimantė</h2>
     </section>
     <nav>
-        <p class="navbutton">Pagrindinis</p>
-        <p class="navbutton active">Atitikimai</p>
-        <p class="navbutton">Pranešimai</p>
-        <p class="navbutton">Premium</p>
+        <a class="navbutton" href="home.php">Pagrindinis</a>
+        <a class="navbutton active" href="matches.php">Atitikimai</a>
+        <a class="navbutton" href="messages.php">Pranešimai</a>
+        <a class="navbutton" href="premium.php">Premium</a>
         <p class="navbutton logoff">Atsijungti</p>
     </nav>
 </aside>

@@ -9,10 +9,10 @@ include_once 'header.php';
     <h2 class="user-name">Rimantė</h2>
     </section>
     <nav>
-        <p class="navbutton">Pagrindinis</p>
-        <p class="navbutton">Atitikimai</p>
-        <p class="navbutton active">Pranešimai</p>
-        <p class="navbutton">Premium</p>
+        <a class="navbutton" href="home.php">Pagrindinis</a>
+        <a class="navbutton" href="matches.php">Atitikimai</a>
+        <a class="navbutton active" href="messages.php">Pranešimai</a>
+        <a class="navbutton" href="premium.php">Premium</a>
         <p class="navbutton logoff">Atsijungti</p>
     </nav>
 </aside>

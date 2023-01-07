@@ -269,6 +269,15 @@ body {
     cursor: pointer;
     margin: 0px;
     transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+.input-submit-disable {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
+    color: white;
 }
 
 .active {
@@ -277,6 +286,8 @@ body {
 
 .navbutton:hover {
     background-color: rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: white;
 }
 
 .logoff {
@@ -409,13 +420,18 @@ body {
 }
 
 .match-button {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-image: "..\img\heart.svg";
     margin: 50px;
     padding: 15px;
     border-radius: 100px;
     border: none;
     opacity: 85%;
     transition: 0.3s;
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
 }
 
 .match-button:hover {
@@ -425,6 +441,14 @@ body {
 
 .match-button:focus {
     outline: 0 !important;
+}
+
+.match-button-yes {
+    background-image: url('../img/heart.svg');
+}
+
+.match-button-no {
+    background-image: url('../img/x.svg');
 }
 
 .photo-switch {
@@ -476,6 +500,7 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin: auto;
 }
 
 .interest {
@@ -776,6 +801,7 @@ body {
     color: red;
     width: 100%;
     display: block;
+    transition: 0.3s;
 }
 
 @media (max-width: 1200px) {

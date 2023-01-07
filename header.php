@@ -19,6 +19,8 @@
 //  }
 
 require("controllers/config/db.php");
+// require("controllers/config/db.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +49,7 @@ require("controllers/config/db.php");
   '<h1 onclick="location.href = ("index.php");">Pavadinimas</h1>' .
   '</nav>';
 }
+
 ?>
  <!-- <nav class="navbar">
  <h1 onclick="location.href = ('index.php');">BooBoo</h1>

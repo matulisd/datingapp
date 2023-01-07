@@ -10,9 +10,10 @@ if (document.getElementById('back-to-main')) {
     document.getElementById('back-to-main').addEventListener('click', () => location.href = "index.php");
 };
 
-// if (document.getElementById('profile')) {
-//     document.getElementById('toggleinfo').addEventListener('click', toggleinfo, false);
-// };
+if (document.getElementById('profile')) {
+    document.getElementById('toggleinfo').addEventListener('click', toggleinfo, false);
+    document.getElementById('toggleinfo2').addEventListener('click', toggleinfo, false);
+};
 
 var preview = 0;
 
@@ -27,4 +28,9 @@ function toggleinfo() {
         document.getElementById('profile').style = 'display:block';
         preview = 0;
     }
+    console.log('toggleinfo');
+};
+
+function test() {
+    console.log('test');
 };

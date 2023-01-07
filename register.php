@@ -9,12 +9,54 @@ session_start();
     include_once 'header.php';
 
 
-    if(isset($_POST['submit'])){
-        $email = htmlspecialchars($_POST['email']);
-    $password = substr(hash('sha256',$_POST['password']),5,32);
-    $password_repeat = substr(hash('sha256',$_POST['password-repeat']),5,32);
+    if(!empty($_SESSION['user_name'])){
+        header("Location: home.php");
+    }
 
-    if ($password == $password_repeat){
+if(isset($_POST['submit'])){
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, substr(hash('sha256',$_POST['password']),5,32));
+    $password_repeat = mysqli_real_escape_string($conn, substr(hash('sha256',$_POST['password-repeat']),5,32));
+    $empty_password_check = substr(hash('sha256',""),5,32);
+
+        // if ($password == $password_repeat){
+
+        // }
+        if($email == null){
+            $error = "Įveskite el. pašto adresą";
+        }
+        else if($password == $empty_password_check){
+            $error = "Įveskite slaptažodį";
+        }
+        else if($password_repeat == $empty_password_check){
+            $error = "Pakartokite slaptažodį";
+        }
+        else if($password != $password_repeat && $password != $empty_password_check){
+            $error = "Slaptažodžiai nesutampa";
+        }
+        else {
+            $check_if_exists = "SELECT email, name FROM user WHERE email ='$email'";
+            $result = mysqli_query($conn, $check_if_exists);
+            $user = mysqli_fetch_assoc($result);
+            mysqli_free_result($result);
+            if($user == null){
+                $query = "INSERT INTO user (email, password) VALUES ('$email', '$password')";
+
+                if(mysqli_query($conn, $query)){
+                    $_SESSION['user_email'] = $email;
+                    echo "Registracija sekminga";
+                    echo $_SESSION['useremail'];
+                    header("Location: register2.php");
+                }
+                else {
+                    echo "error: " . mysqli_error($conn);
+                }
+            }
+            else{
+                $error = "Naudotojas su šiuo el. paštu jau egzistuoja";
+            }
+
+        }
     }
     
 ?>
