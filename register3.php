@@ -2,12 +2,6 @@
     session_start();
     include_once 'header.php';
 
-    // if (empty($_SESSION['useremail'])){
-    //     header("Location: ./index.php");
-    // }
-
-    // echo $_SESSION['useremail'];
-
     if(empty($_SESSION['user_email'])){
       header("Location: index.php");
     }
@@ -49,13 +43,13 @@
 
 <section class="register-box">
     <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>" class="register-form">
-        <p class="register-txt">Liko visai nedaug! <br> Užpildykite likusius reikalingus duomenis</p>
+        <h6 class="register-txt">Liko visai nedaug! <br> Užpildykite likusius reikalingus duomenis</h6>
         <label class="register2-label" for="description">Jūsų profilio aprašymas (nebūtinas)</label>
-        <input type="name" name="description" class="form-control login-input">
+        <input id="description" type="text" name="description" class="form-control login-input">
         <label class="register2-label">Kas Jūs?</label><br>
-        <input type="checkbox" name="men" value="Vaikinas">
+        <input id="men" type="checkbox" name="men" value="Vaikinas">
         <label for="men"> Vaikinas</label>
-        <input type="checkbox" name="women" value="Mergina">
+        <input id="women" type="checkbox" name="women" value="Mergina">
         <label for="women"> Mergina</label><br>
         <p id="errortxt" class="register-error-txt">
                 <?php
@@ -66,7 +60,6 @@
             </p>
         <input name="submit" type="submit" class="button-black topmargin35 botmargin20" value="Užbaigti registraciją">
     </form>
-    <!-- <p id="back-to-main" class="back-register">Grįžti</p> -->
 </section>
 
 <script>
@@ -87,7 +80,6 @@ function showPosition(position){
     document.cookie = "x = " + position.coords.latitude;
     document.cookie = "y = " + position.coords.longitude;
 }
-
 
 </script>
 

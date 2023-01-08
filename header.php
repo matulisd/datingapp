@@ -1,25 +1,9 @@
 <?php
+ 
+ date_default_timezone_set("Europe/Riga");
  $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"],"/") + 1);
 
-//  header("Content-Type: application/json; charset=UTF-8");
-//  header("Access-Control-Allow-Origin: *");
-//  session_start();
-
-//  $server = "localhost";
-//  $user = "root";
-//  $password = "";
-//  $database= "datingapp";
-
-//  $conn=new mysqli($server,$user,$password,$database);
-
-//  if ($conn->connect_error){
-//      die("connection failed:" . $conn->connect_error);
-//      // $output=array("TIPAS"=>"Klaida","ATS"=> "Negaliu prisijungti prie MySQL".$conn->connect_error);
-// 	   // output($output);
-//  }
-
 require("controllers/config/db.php");
-// require("controllers/config/db.php");
 
 ?>
 
@@ -39,31 +23,17 @@ require("controllers/config/db.php");
     <link rel="stylesheet" href="./css/styles.css">
 
 </head>
-<!-- <body class="<?php if ($curPageName == "index.php" || $curPageName == "register.php" || $curPageName == "register2.php") echo "gradientbg"; ?>"> -->
 <body class="gradientbg">
 
 <header>
 
 <?php if ($curPageName == "index.php" || $curPageName == "register.php" || $curPageName == "register2.php" || $curPageName == "register3.php"){
   echo '<nav class="navbar">' .
-  '<h1 onclick="location.href = ("index.php");">Pavadinimas</h1>' .
+  '<h1>Pavadinimas</h1>' .
   '</nav>';
 }
 
 ?>
- <!-- <nav class="navbar">
- <h1 onclick="location.href = ('index.php');">BooBoo</h1>
- </nav> -->
-
-<?php  
-   
-    // if ($curPageName == "index.php"){
-        
-    // }
-    // else {
-        
-    // }
-  ?> 
 
 </header>
 

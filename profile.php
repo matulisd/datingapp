@@ -24,7 +24,6 @@ include_once 'header.php';
     </section>
     <section class="match-info profile-info">
         <p class="match-info-txt profile-info-txt">Rimantė, 20</p>
-        <!-- <img class="match-info-button" src=".\img\info.svg" alt="More info button"> -->
         <div class="line"></div>
         <span class="profile-info-tag ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
         <div class="line"></div>
@@ -37,10 +36,6 @@ include_once 'header.php';
             <div class="interest">Filmai</div>
         </section>
     </section>
-    <!-- <section class="match-navigation">
-        <button class="match-button"><img src=".\img\x.svg" alt="Dislike button"></button>
-        <button class="match-button"><img src=".\img\heart.svg" alt="Like button"></button>
-    </section> -->
 </section>
 </section>
 

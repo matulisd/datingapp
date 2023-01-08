@@ -1,9 +1,5 @@
 <?php
 
-    // require __DIR__ . '/database.php';
-    // $db = DB();
-    // require("controllers/login.php");
-    
     session_start();
     include_once 'header.php';
 
@@ -23,17 +19,12 @@
             $error = "Įveskite slaptazodi";
         }
         else{
-            $query = "SELECT id, name, email, password, description, gender  FROM user WHERE email='$email'";
+            $query = "SELECT user.id, user.name, user.email, user.password, user.description, user.gender, photo.url FROM user LEFT JOIN photo ON photo.user_id = user.id WHERE user.email='$email'";
     
             if(mysqli_query($conn, $query)){
                 $result = mysqli_query($conn, $query);
                 $user = mysqli_fetch_array($result);
-                var_dump($user);
                 mysqli_free_result($result);
-    
-                // foreach($user as $usr){
-                //     echo $usr['password'];
-                // }
             
                 if($user != null){
     
@@ -42,6 +33,7 @@
                         $_SESSION['user_name'] = $user['name'];
                         $_SESSION['user_id'] = $user['id'];
                         $_SESSION['user_gender'] = $user['gender'];
+                        $_SESSION['user_pic'] = $user['url'];
                         header("Location: home.php");
                     }
                     else {
@@ -67,7 +59,6 @@
     <div class="row login">
         <section class="col-md-6 col-sm-12 login-left">
             <img class="login-img" src="./img/korteles.png" alt="Naudotojų profilių nuotraukos">
-             <!-- pakeisti i besikeicianti teksta + vaikinas iesko merginos -->
              <h2 class="login-txt-left"></h2>
             <h3 class="login-txt-left2">Pažintys mygtuko paspaudimu - 
                 surask savo antrą pusę šiandien!
@@ -97,48 +88,7 @@
 </div>
 
 <script>
-    // var errortxt = document.getElementById('errortxt');
-    // errortxt.innerHTML = "";
-
     document.getElementById('register').addEventListener('click', () => location.href = "register.php");
-    // document.getElementById('login-form').addEventListener('submit', login);
-
-    // function login(e){
-    //     e.preventDefault();
-
-    //     var email = document.getElementById('email').value;
-    //     var params = "email=" + email;
-
-    //     var xhr = new XMLHttpRequest();
-    //     xhr.open('POST', './controllers/login.php', true);
-    //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-    //     xhr.onload = function () {
-    //         console.log(this.responseText);
-    //     }
-
-    //     xhr.send(params);
-    // }
-
-    // function login(){
-    //     if (document.getelementbyid('email').inngerHTML == ""){
-    //         errortxt.innerHTML = "Iveskite el. pasta"
-    //     }
-    //     if (document.getelementbyid('password').innerHTML == ""){
-    //         errortxt.innerHTML = "Iveskite slaptazodi"
-    //     }
-    //     else {
-    //         var xmlhttp = new XMLHttpRequest();
-    //         xmlhttp.onreadystatechange = function () {
-    //             if (this.readyState == 4 && this.status == 200) {
-    //                 errortxt.innerHTML = this.responseText;
-    //             }
-    //         };
-    //         // xmlhttp.open("POST")
-    //     }
-
-    //}
-
 </script>
 
 <?php

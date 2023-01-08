@@ -14,6 +14,19 @@ CREATE TABLE `user`
 PRIMARY KEY (`id`)
 );
 
+-- ************************************** `conversation`
+
+CREATE TABLE `conversation`
+(
+ `id`           integer NOT NULL AUTO_INCREMENT,
+ `user_id`      integer NOT NULL ,
+ `time_created` datetime NOT NULL ,
+
+PRIMARY KEY (`id`),
+KEY `FK_2` (`user_id`),
+CONSTRAINT `FK_10_1` FOREIGN KEY `FK_2` (`user_id`) REFERENCES `user` (`id`)
+);
+
 -- ************************************** `match`
 
 CREATE TABLE `match`
@@ -28,6 +41,19 @@ KEY `FK_2` (`user_id`),
 CONSTRAINT `FK_6` FOREIGN KEY `FK_2` (`user_id`) REFERENCES `user` (`id`)
 );
 
+-- ************************************** `participant`
+
+CREATE TABLE `participant`
+(
+ `id`              integer NOT NULL AUTO_INCREMENT,
+ `conversation_id` integer NOT NULL ,
+ `user_id`         integer NOT NULL ,
+
+PRIMARY KEY (`id`),
+KEY `FK_2` (`conversation_id`),
+CONSTRAINT `FK_4` FOREIGN KEY `FK_2` (`conversation_id`) REFERENCES `conversation` (`id`)
+);
+
 -- ************************************** `message`
 
 CREATE TABLE `message`
@@ -38,7 +64,8 @@ CREATE TABLE `message`
  `timestamp`      datetime NOT NULL ,
 
 PRIMARY KEY (`id`),
-KEY `FK_2` (`participant_id`)
+KEY `FK_2` (`participant_id`),
+CONSTRAINT `FK_5` FOREIGN KEY `FK_2` (`participant_id`) REFERENCES `participant` (`id`)
 );
 
 -- ************************************** `photo`

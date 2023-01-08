@@ -505,6 +505,8 @@ body {
 
 .interest {
     padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
     margin: 10px;
     background-color: black;
     color: white;
@@ -712,6 +714,7 @@ body {
 }
 
 .match-info-inchat {
+    position: relative;
     font-size: 1.5rem;
     padding: 15px;
     margin: 0px;
@@ -723,6 +726,8 @@ body {
 }
 
 .inchat-btn {
+    position: relative;
+    bottom: -50px;
     width: 100%;
     height: 50px;
     margin-top: 50px;
@@ -755,6 +760,14 @@ body {
 
 .nametag-right {
     float: right;
+    /* grid-template-columns: auto auto auto;
+    background-color: #2196F3; */
+}
+
+.msg-grid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 15px;
 }
 
 .msg-preview {
@@ -762,20 +775,35 @@ body {
     display: flex;
     align-items: center;
     justify-content: left;
-    flex-wrap: row wrap;
-    height: 20%;
+    height: 100%;
     margin-bottom: 20px;
-    width: 40%;
-    background-color: rgba(255, 255, 255, .8);
+    width: 80%;
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 100px;
+    padding: 10px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    transition: 0.3s;
+    color: black;
+    text-decoration: none;
+}
+
+.msg-preview:hover {
+    background-color: rgba(255, 255, 255, .4);
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .msg-pre-img {
     position: relative;
-    height: 100%;
+    height: 75px;
+    margin-left: 10px;
     border-radius: 100%;
+}
+
+.msg-pre-a:hover {
+    text-decoration: none;
 }
 
 .msg-pre-name {
@@ -783,13 +811,16 @@ body {
     margin: 0px;
     font-weight: 700;
     margin-left: 10px;
+    text-decoration: none;
 }
 
 .msg-pre {
     position: relative;
     margin: 0px;
     width: 100%;
+    overflow: hidden;
     margin-left: 10px;
+    text-overflow: ellipsis;
 }
 
 .add-padding {
@@ -802,6 +833,24 @@ body {
     width: 100%;
     display: block;
     transition: 0.3s;
+}
+
+.blur {
+    filter: blur(.5rem);
+}
+
+.limit18 {
+    margin-top: 150px;
+    text-align: center;
+}
+
+.limit18link {
+    font-size: 1rem;
+    color: black;
+}
+
+.limit18link:hover {
+    color: black;
 }
 
 @media (max-width: 1200px) {

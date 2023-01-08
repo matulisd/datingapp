@@ -14,12 +14,12 @@ else if(!isset($_SESSION['user_gender'])){
     header("Location: register3.php");
 }
 
-$latitude = $_COOKIE['x'];
-$longitude = $_COOKIE['y'];
 $uid = $_SESSION['user_id'];
 //https://rapidlasso.com/2019/05/06/how-many-decimal-digits-for-storing-longitude-latitude/#:~:text=Longitude%20and%20latitude%20coordinates%20are,right%20of%20the%20decimal%20points.
 
 if(!empty($_COOKIE['x'])) {
+$latitude = $_COOKIE['x'];
+$longitude = $_COOKIE['y'];
 $geolocation_check = "SELECT latitude, longitude FROM user_geolocation WHERE user_id ='$uid'";
 $result = mysqli_query($conn, $geolocation_check);
 $geolocation = mysqli_fetch_array($result);
@@ -41,8 +41,6 @@ if($geolocation['latitude'] != $_COOKIE['x'] || $geolocation['longitude'] != $_C
         }
     }
 
-    // $getuser = "SELECT user.id, user.name, user.description, user.gender, match.response FROM user LEFT JOIN match ON user.user_id = match.matched_user_id WHERE match.user_id = '$uid'";
-
     if($_SESSION['user_gender'] == "V"){
         $prefered_gender = "M";
     }
@@ -56,62 +54,56 @@ if($geolocation['latitude'] != $_COOKIE['x'] || $geolocation['longitude'] != $_C
     LEFT JOIN user_geolocation on user.id = user_geolocation.user_id 
     LEFT JOIN photo on user.id = photo.user_id
     WHERE user.name is not null AND user.id != '$uid' and user.gender = '$prefered_gender' and matches.response is null";
-
-    // echo "as: " . $_SESSION['user_name'] . " uid: " . $_SESSION['user_id'] . " -> ";
-
+    
     if(mysqli_query($conn, $getuser)){
         $result = mysqli_query($conn, $getuser);
-        // $usser = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        // var_dump($usser);
-        // mysqli_free_result($result);
-        // echo "count: " . mysqli_num_rows($result);
         $row = mysqli_fetch_array($result);
         if($row != null){
             $matched_id = $row['userid'];
         $matched_name = $row['username'];
         $matched_description = $row['description'];
         $matched_photo = $row['url'];
+        if($row['url'] == null){
+            $matched_photo = './img/usr_img/dd/black.jpg';
+        }
         $matched_age = (int)date("Y-m-d") - (int)$row['birth_date'];
         }
-        
-        // foreach($usser as $usr){
-        //     // var_dump($usser);
-        //     echo $usser[0];
-        //     // echo $usser['username'];
-        //     echo " +++ ";
-        //     $count++;
-        // }
-        // echo "count: " . $count;
+
         mysqli_free_result($result);
 
     }
     else {
         echo "error: " . mysqli_error($conn);
       }
+      
 if($row != null){
 if(isset($_POST['yes'])){
     $matchinfo = "INSERT INTO matches (user_id, matched_user_id, response) VALUES ('$uid', '$matched_id ', 'true')";
-        if(!mysqli_query($conn, $matchinfo)){
-          echo "error: " . mysqli_error($conn);
+        if(mysqli_query($conn, $matchinfo)){
+            header("Refresh:0");
+        }
+        else{
+            echo "error: " . mysqli_error($conn);
         }
 }
 
 if(isset($_POST['no'])){
     $matchinfo = "INSERT INTO matches (user_id, matched_user_id, response) VALUES ('$uid', '$matched_id ', 'false')";
-        if(!mysqli_query($conn, $matchinfo)){
-          echo "error: " . mysqli_error($conn);
-        }        
+        if(mysqli_query($conn, $matchinfo)){
+            header("Refresh:0");
+        }
+        else{
+            echo "error: " . mysqli_error($conn);
+        }
 }
 }
-
-
 
 ?>
 
-<section class="mainpage">
+<div class="mainpage">
 <aside class="sidebar">
     <section class="user-name-block">
-    <img class="profile-picture" src=".\img\usr_img\dd\Screenshot_5.jpg" alt="User's profile picture">
+    <img class="profile-picture" src="<?php echo $_SESSION['user_pic'] ?>" alt="User's profile picture">
     <h2 class="user-name"><?php echo $_SESSION['user_name'] ?></h2>
     </section>
     <nav>
@@ -120,41 +112,41 @@ if(isset($_POST['no'])){
         <a class="navbutton" href="messages.php">Pranešimai</a>
         <a class="navbutton" href="premium.php">Premium</a>
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
-        <input type="submit" name="logoff" class="navbutton logoff input-submit-disable" value="Atsijungti"></input>
+        <input type="submit" name="logoff" class="navbutton logoff input-submit-disable" value="Atsijungti">
         </form>
     </nav>
 </aside>
 
-<section class="matchbox">
+<div class="matchbox">
 <?php
 
 if($row != null){
 
     echo '<section id="profile">' .
-    '<section class="match-preview">' .
-        '<button class="photo-switch switch-left"><img src=".\img\arrow_left.svg" alt="Arrow left"></button>' .
-        '<button class="photo-switch switch-right"><img src=".\img\arrow_right.svg" alt="Arrow right"></button>' .
-       ' <img class="match-picture" src="' . $matched_photo . '">' .
-    '</section>' .
-    '<section class="match-info">' .
+    '<div class="match-preview">' .
+        '<button class="photo-switch switch-left"><img src="img/arrow_left.svg" alt="Arrow left"></button>' .
+        '<button class="photo-switch switch-right"><img src="img/arrow_right.svg" alt="Arrow right"></button>' .
+       ' <img class="match-picture" src="' . $matched_photo . '" alt="user profile picture">' .
+    '</div>' .
+    '<div class="match-info">' .
         '<p class="match-info-txt">' . $matched_name . ', ' . $matched_age . '</p>' .
-        '<button class="removebuttonatt" onclick="test"><img id="toggleinfo" class="match-info-button" src=".\img\info.svg" alt="More info button"></button>' .
-    '</section>' .
+        '<button class="removebuttonatt" onclick="test"><img id="toggleinfo" class="match-info-button" src="img/info.svg" alt="More info button"></button>' .
+    '</div>' .
     '</section>' .
     //profile preview
     '<section id="profile-preview" class="matchbox-inside profile-edit-box">' .
-    '<section class="match-preview">' .
-        '<button class="photo-switch switch-left"><img src=".\img\arrow_left.svg" alt="Arrow left"></button>' .
-        '<button class="photo-switch switch-right"><img src=".\img\arrow_right.svg" alt="Arrow right"></button>' .
-        '<img class="match-picture" src="' . $matched_photo . '">' .
-    '</section>' .
+    '<div class="match-preview">' .
+        '<button class="photo-switch switch-left"><img src="img/arrow_left.svg" alt="Arrow left"></button>' .
+        '<button class="photo-switch switch-right"><img src="img/arrow_right.svg" alt="Arrow right"></button>' .
+        '<img class="match-picture" src="' . $matched_photo . '" alt="user profile picture">' .
+    '</div>' .
     '<section class="match-info profile-info profile-edit-box">' .
     '<p class="match-info-txt">' . $matched_name . ', ' . $matched_age . '</p>' .
-        '<button class="removebuttonatt" onclick="test"><img id="toggleinfo2" class="match-info-button" src=".\img\info.svg" alt="More info button"></button>' .
+        '<button class="removebuttonatt" onclick="test"><img id="toggleinfo2" class="match-info-button" src="img/info.svg" alt="More info button"></button>' .
         '<div class="line"></div>' .
         '<span class="profile-info-tag ">' . $matched_description . '</span>' .
         '<div class="line"></div>' .
-        '<section class="interest-box">';
+        '<div class="interest-box">';
             
             $get_interests = "SELECT interests.interest_description FROM interests INNER JOIN user_interests ON interests.id = user_interests.interest_id AND user_interests.user_id = '$matched_id'";
             if(mysqli_query($conn, $get_interests)){
@@ -167,21 +159,23 @@ if($row != null){
               mysqli_free_result($result);
             }
             
-      echo  '</section>' .
+      echo  '</div>' .
     '</section>' .
     '</section>' .
         
     
     '<form method="POST" action="' . $_SERVER['PHP_SELF'] . '" class="match-navigation">' .
-       ' <input type="submit" name="no" class="match-button match-button-no" value="" alt="Dislike button">' .
-        '<input type="submit" name="yes" class="match-button match-button-yes" value="" alt="Like button">' .
+       ' <input type="submit" name="no" class="match-button match-button-no" value="">' .
+        '<input type="submit" name="yes" class="match-button match-button-yes" value="">' .
 '</form>';
 }
 else {
     echo "<p class='login-txt-left2'>Naujų narių pagal Jūsų interesus nėra. Grįžkite vėliau! :)";
 }
 ?>
-</section>
+
+</div>
+</div>
 
 
 <script>
